@@ -2,11 +2,13 @@ package sudoku_solver;
 
 import java.util.Iterator;
 
-public class SudokuSolver {
+// This is a "brutforce approach" for solving a sudoku
+
+public class SudokuSolver1 {
 
 	private static final int GRID_SIZE = 9;
 
-	private static void printBoard(int[][] board) {
+	protected static void printBoard(int[][] board) {
 
 		for (int row = 0; row < GRID_SIZE; row++) {
 
@@ -36,7 +38,7 @@ public class SudokuSolver {
 
 	// Checks if the number already exists in row
 
-	private static boolean isInRow(int[][] board, int number, int row) {
+	protected static boolean isInRow(int[][] board, int number, int row) {
 
 		for (int i = 0; i < GRID_SIZE; i++) {
 
@@ -54,7 +56,7 @@ public class SudokuSolver {
 
 	// Checks if the number already exists in column
 
-	private static boolean isInCol(int[][] board, int number, int col) {
+	protected static boolean isInCol(int[][] board, int number, int col) {
 
 		for (int i = 0; i < GRID_SIZE; i++) {
 
@@ -72,7 +74,7 @@ public class SudokuSolver {
 
 	// Checks if the number already exists in the 3X3 square
 
-	private static boolean isInSquare(int[][] board, int number, int row, int col) {
+	protected static boolean isInSquare(int[][] board, int number, int row, int col) {
 
 		// There are 9 squares on the board
 
@@ -100,7 +102,7 @@ public class SudokuSolver {
 
 	}
 
-	private static boolean isValidPlacement(int[][] board, int number, int row, int col) {
+	protected static boolean isValidPlacement(int[][] board, int number, int row, int col) {
 
 		if (!isInRow(board, number, row) && !isInCol(board, number, col) && !isInSquare(board, number, row, col)) {
 
@@ -112,7 +114,7 @@ public class SudokuSolver {
 
 	}
 
-	private static boolean solveBoard(int[][] board) {
+	protected static boolean solveBoard(int[][] board) {
 
 		for (int row = 0; row < GRID_SIZE; row++) {
 
@@ -154,50 +156,6 @@ public class SudokuSolver {
 		}
 
 		return true;
-
-	}
-
-	public static void main(String[] args) {
-
-		int[][] board = {
-
-				{ 0, 4, 0, 0, 0, 0, 0, 0, 9 },
-
-				{ 2, 0, 0, 0, 5, 0, 0, 0, 0 },
-
-				{ 0, 0, 0, 0, 3, 0, 0, 0, 0 },
-
-				{ 0, 9, 8, 0, 0, 0, 0, 0, 0 },
-
-				{ 0, 0, 0, 0, 0, 0, 3, 0, 6 },
-
-				{ 0, 0, 0, 0, 0, 0, 7, 5, 0 },
-
-				{ 0, 0, 0, 4, 0, 8, 0, 6, 0 },
-
-				{ 7, 0, 0, 0, 0, 0, 5, 0, 0 },
-
-				{ 0, 0, 0, 9, 0, 0, 0, 0, 0 },
-
-		};
-
-		System.out.println("Initial board :\n");
-
-		printBoard(board);
-
-		if (solveBoard(board)) {
-
-			System.out.println("\nSolved successfully!\n");
-
-		}
-
-		else {
-
-			System.out.println("Sudoku couldn't be solved");
-
-		}
-
-		printBoard(board);
 
 	}
 
