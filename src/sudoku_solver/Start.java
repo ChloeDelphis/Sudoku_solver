@@ -7,16 +7,15 @@ public class Start {
 
 	}
 
-	static void sudokuSolver1(int [][] board) {
-
+	static void sudokuSolver1(int[][] board) {
 
 		System.out.println("Initial board :\n");
 
-		SudokuSolver1.printBoard(board);
+		SudokuSolver.printBoard(board);
 
 		long beginning = System.currentTimeMillis();
 
-		if (SudokuSolver1.solveBoard(board)) {
+		if (SudokuSolver.solveBoard(board)) {
 			long end = System.currentTimeMillis();
 			System.out.println("\nSudoku solved successfully in " + (end - beginning) + "ms\n");
 
@@ -28,7 +27,7 @@ public class Start {
 
 		}
 
-		SudokuSolver1.printBoard(board);
+		SudokuSolver.printBoard(board);
 
 	}
 

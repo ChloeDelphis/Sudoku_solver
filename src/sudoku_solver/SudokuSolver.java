@@ -1,10 +1,6 @@
 package sudoku_solver;
 
-import java.util.Iterator;
-
-// This is a "brutforce approach" for solving a sudoku
-
-public class SudokuSolver1 {
+public class SudokuSolver {
 
 	private static final int GRID_SIZE = 9;
 
